@@ -4,11 +4,11 @@ body {
     background: white;
     display: grid;
     grid-template-columns: 
-    [left] 100px [main] 1fr [end] 100px [right];
+    [left] 50px [main] 1fr [end] 50px [right];
     grid-template-rows: 
     [header] auto [main] auto [aside] auto [footer] auto [bottom];
 }
-h2 {
+.sub-top {
     text-align: center;
 }
 /* ヘッダー */
@@ -28,9 +28,8 @@ header img {
 }
 /* ナビ */
 nav {
-    position: absolute;
-    top: 0;
-    right: 0;
+    width: 100%;
+    margin: 0 auto;
     grid-column-start: main;
     grid-column-end: end;
     grid-row-start: header;
@@ -38,9 +37,9 @@ nav {
 }
 nav ul {
     display: flex;
+    justify-content: end;
     list-style: none;
     margin: 0;
-    padding: 0;
     font-size: 20px;
 }
 nav li {
@@ -72,7 +71,7 @@ main {
     grid-row-start: main;
     grid-row-end: aside;
 }
-.profile {
+.about {
     width: 500px;
     margin: 10px auto;
 }
@@ -102,7 +101,7 @@ aside {
     grid-row-start: aside;
     grid-row-end: footer;
 }
-.topics{
+.news{
     width: 600px;
     margin: 20px auto;
     padding: 15px auto;
@@ -128,13 +127,13 @@ aside {
     margin: 0 auto;
     text-align: center;
 }
-.bottum {
+.button {
     margin: 20px auto;
     padding: 10px 60px;
     box-sizing: border-box;
     border: solid 1px gray;
     background: gray;
-    font-size: 30px;
+    font-size: 20px;
     color: white;
     cursor: pointer;
 }
@@ -144,6 +143,33 @@ footer {
     grid-column-end: end;
     grid-row-start: footer;
     grid-row-end: bottom;
-    margin: 10px auto;
+    text-align: center;
     background: aquamarine;
+}
+/* 画面幅での切り替え */
+@media screen and (max-width: 1200px) {
+    body {
+        width: 100%;
+    }
+    header {
+        text-align: center;
+    }
+    header img {
+        margin-top: 50px;
+    }
+    nav {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 70px;
+        margin-bottom: 25%;
+        padding: 5px 0;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.61);
+    }
+    nav ul li {
+        padding: 0 30px;
+        height: 10px;
+    }
 }
